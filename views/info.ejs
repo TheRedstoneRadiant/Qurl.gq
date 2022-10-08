@@ -1,12 +1,18 @@
 <html>
   <head>
-    <title>Qurl.gq - <%= shortUrl %>
-    </title>
+    <title>Qurl.gq - <%= shortUrl %></title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
+    />
 
     <!-- JavaScript -->
     <script src="/js/theme.js" defer></script>
@@ -49,57 +55,54 @@
         <tfoot>
           <tr>
             <th>Total Redirects:</th>
-            <td>
-              <%= redirects %>
-            </td>
+            <td><%= redirects %></td>
           </tr>
         </tfoot>
       </table>
       <% if (logIps) { %>
-        <table>
-          <thead>
-            <tr>
-              <th>IP Address</th>
-              <th>Location</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% for (const visitor of visitors) { %>
-              <tr>
-                <td>
-                  <%= visitor.ipAddress %>
-                </td>
-                <td>
-                  <%= visitor.location %>
-                </td>
-                <td time="<%= visitor.time %>">
-                </td>
-              </tr>
-              <% } %>
-          </tbody>
-        </table>
+      <table>
+        <thead>
+          <tr>
+            <th>IP Address</th>
+            <th>Location</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (const visitor of visitors) { %>
+          <tr>
+            <td><%= visitor.ipAddress %></td>
+            <td><%= visitor.location %></td>
+            <td time="<%= visitor.time %>"></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
       <% } else { %>
-        <p>This URL does not collect IP addreses.</p>
+      <p>This URL does not collect IP addreses.</p>
       <% } %>
     </main>
 
     <footer>
-        <nav>
-          <ul> 
-            <li>
-                <a href="https://github.com/TheRedstoneRadiant/Qurl.gq">Github</a>
-            </li>
-            <li>
-                <a href="https://github.com/TheRedstoneRadiant/Qurl.gq/contributors">Contributors ❤️</a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-                <a href="javascript:undefined" id="lightbulb"><i class="fa-solid fa-lightbulb"></i></a>
-            </li>
-          </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>
+            <a href="https://github.com/TheRedstoneRadiant/Qurl.gq">Github</a>
+          </li>
+          <li>
+            <a href="https://github.com/TheRedstoneRadiant/Qurl.gq/contributors"
+              >Contributors ❤️</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="javascript:undefined" id="lightbulb"
+              ><i class="fa-solid fa-lightbulb"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
     </footer>
   </body>
 </html>

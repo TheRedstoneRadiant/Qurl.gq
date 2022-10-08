@@ -1,58 +1,71 @@
 <html>
-    <head>
-        <title>Qurl.gq</title>
-        
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
-        <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.2.0/css/all.css">
-        
-        <!-- JavaScript -->
-        <script src="js/index.js" defer></script>
-        <script src="js/theme.js" defer></script>
-    </head>
+  <head>
+    <title>Qurl.gq</title>
 
-    <body class="container">
-        <header>
-            <hgroup>
-                <h1>Qurl.gq</h1>
-                <h3>An open-source URL Shortener written in Node.js 🔗</h3>
-            </hgroup>
-        </header>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
+    />
 
-        <main>
-            <form>
-                <fieldset>
-                    <label for="url">
-                        URL:
-                        <input placeholder="https://duckduckgo.com" type="text" name="urlInput" required/ >
-                    </label>
-                    <label for="logIps">
-                        <input type="checkbox" name="logIps" id="logIps" />
-                        Log IP Addresses
-                    </label>
-                </fieldset>
+    <!-- JavaScript -->
+    <script src="js/index.js" defer></script>
+    <script src="js/theme.js" defer></script>
+  </head>
 
-                <button type="submit" name="submitButton">Shorten URL <i class="arrow fa-solid fa-arrow-right"></i></button>
-            </form>
-        </main>
+  <body class="container">
+    <header>
+      <hgroup>
+        <h1>Qurl.gq</h1>
+        <h3>An open-source URL Shortener written in Node.js 🔗</h3>
+      </hgroup>
+    </header>
 
-        <footer>
-            <nav>
-                <ul> 
-                    <li>
-                        <a href="https://github.com/TheRedstoneRadiant/Qurl.gq">Github</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/TheRedstoneRadiant/Qurl.gq/contributors">Contributors ❤️</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <a href="javascript:undefined" id="lightbulb"><i class="fa-solid fa-lightbulb"></i></a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
-    </body>
+    <main>
+      <form>
+        <fieldset>
+          <label for="url">
+            URL: <input placeholder="https://duckduckgo.com" type="text"
+            name="urlInput" required/ >
+          </label>
+          <label for="logIps">
+            <input type="checkbox" name="logIps" id="logIps" />
+            Log IP Addresses
+          </label>
+        </fieldset>
+
+        <button type="submit" name="submitButton">
+          Shorten URL <i class="arrow fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+    </main>
+
+    <footer>
+      <nav>
+        <ul>
+          <li>
+            <a href="https://github.com/TheRedstoneRadiant/Qurl.gq">Github</a>
+          </li>
+          <li>
+            <a href="https://github.com/TheRedstoneRadiant/Qurl.gq/contributors"
+              >Contributors ❤️</a
+            >
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="javascript:undefined" id="lightbulb"
+              ><i class="fa-solid fa-lightbulb"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
 </html>
