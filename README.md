@@ -43,6 +43,14 @@ Start development server
 ```bash
 npm run dev
 ```
+To run the linter via the command line on your entire project's source code
+
+`npm run esLint` or `npx eslint .`
+
+To fix every rule violation noticed by Linter
+> **_NOTE:_**  `eslint --fix` will fix every rule violation it is capable of fixing, actually overwrite the code, and print out any warnings or errors it was incapable of fixing.
+
+` npm run lint-fix` or `npx eslint --fix .`
 
 # Tech Stack
 
