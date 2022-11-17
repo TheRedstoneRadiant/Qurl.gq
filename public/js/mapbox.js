@@ -1,4 +1,8 @@
 let map;
+const mapToken = process.env.MAPBOX_API_TOKEN;
+const mapboxgl = require('mapbox-gl');
+const dataTheme = document.querySelector('body').getAttribute('data-theme');
+const visitors = document.querySelector('#visitors');
 
 if (visitors.length !== 0) {
   mapboxgl.accessToken = mapToken;

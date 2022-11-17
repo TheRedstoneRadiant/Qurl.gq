@@ -3,7 +3,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "DEV=true nodemon index.js",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "esLint": "npx eslint ."
   },
   "husky": {
     "hooks": {
@@ -18,6 +19,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.2",
+    "eslint": "^8.27.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.7.1"
   },

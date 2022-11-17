@@ -34,7 +34,9 @@ router.get('/:shortUrl', async (req, res, next) => {
       location = `${response.data.city}, ${response.data.region}, ${response.data.country_name}`;
       coordinates = [response.data.longitude, response.data.latitude];
       ipAddress = response.data.ip;
-    } catch {}
+    } catch(error) {
+      return next(error);
+    }
 
     update['$push'] = {
       visitors: {
@@ -49,7 +51,7 @@ router.get('/:shortUrl', async (req, res, next) => {
   urlCollection.updateOne({ shortUrl: req.shortenedUrl.shortUrl }, update);
 });
 
-router.get('/:shortUrl/info', async (req, res, next) => {
+router.get('/:shortUrl/info', async (req, res) => {
   res.render('info', { ...req.shortenedUrl, mapToken });
 });
 

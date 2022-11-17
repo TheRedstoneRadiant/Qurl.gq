@@ -1,5 +1,5 @@
 let dataTheme = window.localStorage.getItem('data-theme');
-
+let map;
 if (!dataTheme) {
   dataTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   window.localStorage.setItem('data-theme', dataTheme);
@@ -20,4 +20,5 @@ lightbulb.onclick = (e) => {
   if (map) {
     map.setStyle(`mapbox://styles/mapbox/${dataTheme}-v10`);
   }
+
 };
