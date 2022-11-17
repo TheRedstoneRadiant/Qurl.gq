@@ -1,4 +1,9 @@
 let map;
+let visitors = [];
+let mapToken = '';
+const mapboxgl = require('mapbox-gl');
+
+const dataTheme = window.localStorage.getItem('data-theme');
 
 if (visitors.length !== 0) {
   mapboxgl.accessToken = mapToken;
