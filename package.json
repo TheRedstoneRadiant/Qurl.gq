@@ -4,7 +4,8 @@
     "start": "node index.js",
     "dev": "DEV=true nodemon index.js",
     "format": "npx prettier --write .",
-    "esLint": "npx eslint ."
+    "esLint": "npx eslint .",
+    "lint-fix": "npx eslint --fix ."
   },
   "husky": {
     "hooks": {
@@ -20,6 +21,7 @@
   "devDependencies": {
     "dotenv": "^16.0.2",
     "eslint": "^8.27.0",
+    "eslint-pre-commit-hook": "^2.0.7",
     "nodemon": "^2.0.16",
     "prettier": "^2.7.1"
   },
