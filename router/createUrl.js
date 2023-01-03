@@ -17,6 +17,12 @@ router.post('/', (req, res, next) => {
     });
   }
 
+  if (req.body.customURL.length > 0 && req.body.customURL.length <= 10) {
+    return res.status(400).json({
+      errors: ['Your custom short URL must be between 1-10 characters long.'],
+    });
+  }
+
   if (!isValidHttpUrl(req.body.url)) {
     return res.status(400).json({
       errors: ['Invalid URL.'],
@@ -27,7 +33,13 @@ router.post('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res) => {
-  const shortUrl = await generateShortUrl();
+  let shortUrl;
+
+  if (req.body.customURL.length > 0) {
+    shortUrl = req.body.customURL;
+  } else {
+    shortUrl = await generateShortUrl();
+  }
 
   await urlCollection.insertOne({
     shortUrl,
