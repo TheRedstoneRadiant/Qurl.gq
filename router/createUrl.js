@@ -20,7 +20,7 @@ router.post('/', async (req, res, next) => {
   const customURL = req.body.customURL;
 
   if (customURL.length > 0) {
-    if (customURL.length <= 10) {
+    if (customURL.length >= 10) {
       return res.status(400).json({
         errors: ['Your custom short URL must be between 1-10 characters long.'],
       });
