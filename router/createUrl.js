@@ -4,7 +4,7 @@ const { isValidHttpUrl, generateShortUrl } = require('../utils');
 
 const router = Router();
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res, next) => {
   if (!req.body.url) {
     return res.status(400).json({
       errors: ["Missing 'url' field in JSON body."],
@@ -17,6 +17,20 @@ router.post('/', (req, res, next) => {
     });
   }
 
+  const customURL = req.body.customURL;
+
+  if (customURL.length > 0) {
+    if (customURL.length >= 10) {
+      return res.status(400).json({
+        errors: ['Your custom short URL must be between 1-10 characters long.'],
+      });
+    }
+
+    if (await urlCollection.findOne({ shortUrl: customURL })) {
+      return await generateShortUrl();
+    }
+  }
+
   if (!isValidHttpUrl(req.body.url)) {
     return res.status(400).json({
       errors: ['Invalid URL.'],
@@ -27,7 +41,15 @@ router.post('/', (req, res, next) => {
 });
 
 router.post('/', async (req, res) => {
-  const shortUrl = await generateShortUrl();
+  let shortUrl;
+
+  const customURL = req.body.customURL;
+
+  if (customURL.length > 0) {
+    shortUrl = customURL;
+  } else {
+    shortUrl = await generateShortUrl();
+  }
 
   await urlCollection.insertOne({
     shortUrl,
