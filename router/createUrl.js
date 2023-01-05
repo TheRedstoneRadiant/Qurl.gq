@@ -25,15 +25,23 @@ router.post('/', async (req, res, next) => {
         errors: ['Your custom short URL must be between 1-10 characters long.'],
       });
     }
-
+    
     if (await urlCollection.findOne({ shortUrl: customURL })) {
-      return await generateShortUrl();
+     return res.status(400).json({
+        errors: ['This custom short URL already exists.'],
+      });
     }
   }
 
   if (!isValidHttpUrl(req.body.url)) {
     return res.status(400).json({
       errors: ['Invalid URL.'],
+    });
+  }
+  
+  if (req.body.url.startsWith("https://qurl.gq") || req.body.url.startsWith("http://qurl.gq") {
+    return res.status(400).json({
+      errors: ['You cannot create a short URL that redirects to Qurl.gq.'],
     });
   }
 
