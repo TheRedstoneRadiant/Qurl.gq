@@ -4,6 +4,7 @@
 
 - Displays a graphical map of all visitors
 - Optional timestamp and IP address logging (/<shortUrl>/info)
+- Allows for the usage of custom Short URLs (Use your brand name!)
 
 # Screenshots
 
