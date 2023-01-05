@@ -39,7 +39,7 @@ router.post('/', async (req, res, next) => {
     });
   }
   
-  if (req.body.url.startsWith("https://qurl.gq") || req.body.url.startsWith("http://qurl.gq") {
+  if (req.body.url.startsWith("https://qurl.gq") || req.body.url.startsWith("http://qurl.gq")) {
     return res.status(400).json({
       errors: ['You cannot create a short URL that redirects to Qurl.gq.'],
     });
