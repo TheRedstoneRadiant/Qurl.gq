@@ -2,6 +2,9 @@
 
 [Qurl.gq](https://qurl.gq) is an open-source URL Shortener written in Node.js 🔗
 
+- Displays a graphical map of all visitors
+- Optional timestamp and IP address logging (/<shortUrl>/info)
+
 # Screenshots
 
 <a href="https://qurl.gq">
