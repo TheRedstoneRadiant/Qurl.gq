@@ -4,7 +4,7 @@ if (visitors.length !== 0) {
   mapboxgl.accessToken = mapToken;
 
   map = new mapboxgl.Map({
-    container: 'map',
+    container: "map",
     style: `mapbox://styles/mapbox/${dataTheme}-v10`,
   });
 
@@ -12,8 +12,8 @@ if (visitors.length !== 0) {
 
   for (const visitor of JSON.parse(visitors)) {
     // create an empty marker element
-    const element = document.createElement('div');
-    element.className = 'marker';
+    const element = document.createElement("div");
+    element.className = "marker";
 
     // create and apply marker object
     new mapboxgl.Marker({

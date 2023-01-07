@@ -1,19 +1,19 @@
-const { Router } = require('express');
-const { urlCollection } = require('../');
-const { isValidHttpUrl, generateShortUrl } = require('../utils');
+const { Router } = require("express");
+const { urlCollection } = require("../");
+const { isValidHttpUrl, generateShortUrl } = require("../utils");
 
 const router = Router();
 
-router.post('/', async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   if (!req.body.url) {
     return res.status(400).json({
-      errors: ["Missing 'url' field in JSON body."],
+      errors: ["Missing 'url' field in JSON body.", "url"],
     });
   }
 
-  if (typeof req.body.logIps !== 'boolean') {
+  if (typeof req.body.logIps !== "boolean") {
     return res.status(400).json({
-      errors: ['You must choose whether to log IP addresses or not.'],
+      errors: ["You must choose whether to log IP addresses or not.", "logIps"],
     });
   }
 
@@ -22,33 +22,42 @@ router.post('/', async (req, res, next) => {
   if (customURL.length > 0) {
     if (customURL.length >= 10) {
       return res.status(400).json({
-        errors: ['Your custom short URL must be between 1-10 characters long.'],
+        errors: [
+          "Your custom short URL must be between 1-10 characters long.",
+          "custom",
+        ],
       });
     }
-    
+
     if (await urlCollection.findOne({ shortUrl: customURL })) {
-     return res.status(400).json({
-        errors: ['This custom short URL already exists.'],
+      return res.status(400).json({
+        errors: ["This custom short URL already exists.", "custom"],
       });
     }
   }
 
   if (!isValidHttpUrl(req.body.url)) {
     return res.status(400).json({
-      errors: ['Invalid URL.'],
+      errors: ["Invalid URL.", "url"],
     });
   }
-  
-  if (req.body.url.startsWith("https://qurl.gq") || req.body.url.startsWith("http://qurl.gq")) {
+
+  if (
+    req.body.url.startsWith("https://qurl.gq") ||
+    req.body.url.startsWith("http://qurl.gq")
+  ) {
     return res.status(400).json({
-      errors: ['You cannot create a short URL that redirects to Qurl.gq.'],
+      errors: [
+        "You cannot create a short URL that redirects to Qurl.gq.",
+        "url",
+      ],
     });
   }
 
   next();
 });
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   let shortUrl;
 
   const customURL = req.body.customURL;

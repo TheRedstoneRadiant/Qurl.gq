@@ -1,7 +1,7 @@
 {
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "dev": "DEV=true nodemon index.js",
     "format": "npx prettier --write ."
   },
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.2",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.20",
     "prettier": "^2.7.1"
   },
   "license": "GPL-3.0"

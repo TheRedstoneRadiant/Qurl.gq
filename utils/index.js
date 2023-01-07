@@ -1,4 +1,4 @@
-const { urlCollection } = require('../');
+const { urlCollection } = require("../");
 
 const isValidHttpUrl = (string) => {
   let url;
@@ -9,7 +9,7 @@ const isValidHttpUrl = (string) => {
     return false;
   }
 
-  return url.protocol === 'http:' || url.protocol === 'https:';
+  return url.protocol === "http:" || url.protocol === "https:";
 };
 
 const generateShortUrl = async () => {
