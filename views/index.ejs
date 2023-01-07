@@ -21,15 +21,18 @@
       <form>
         <fieldset>
           <label for="url">
-            URL: <input placeholder="https://duckduckgo.com" type="text" name="urlInput" required />
-          </label>
-          <label for="customURL">
-            Custom Short URL (Optional): <input placeholder="" type="text" name="customURL" />
-          </label>
-          <label for="logIps">
-            <input type="checkbox" name="logIps" id="logIps" checked />
-            Collect IP Addresses
-          </label>
+            URL: <input placeholder="https://duckduckgo.com" type="text" name="urlInput" required="">
+          </label><br>
+          <details>
+            <summary>Options</summary>
+              <label for="customURL">
+                Custom Short URL (Optional): <input placeholder="" type="text" name="customURL">
+              </label>
+            <label for="logIps">
+              <input type="checkbox" name="logIps" id="logIps">
+              Collect IP Addresses
+            </label>
+          </details>
         </fieldset>
         <button type="submit" name="submitButton">Shorten URL <i class="arrow fa-solid fa-arrow-right"></i></button>
       </form>

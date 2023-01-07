@@ -19,21 +19,21 @@ router.get('/:shortUrl*', async (req, res, next) => {
 });
 
 router.get('/:shortUrl', async (req, res, next) => {
-  res.redirect(req.shortenedUrl.destination);
+
 
   const update = { $inc: { redirects: 1 } };
 
   // IP address logging
   if (req.shortenedUrl.logIps) {
-    let ipAddress = req.header('x-forwarded-for');
-
+    let ipAddress = req.header("x-forwarded-for");
     let location, coordinates, response;
 
-    try {
+    try {      
+      const ipData = await axios.get('https://ipinfo.io/json');
+      ipAddress = ipData.ip
       response = await axios.get(`https://ipapi.co/${ipAddress}/json`);
       location = `${response.data.city}, ${response.data.region}, ${response.data.country_name}`;
       coordinates = [response.data.longitude, response.data.latitude];
-      ipAddress = response.data.ip;
     } catch {}
 
     update['$push'] = {
@@ -47,6 +47,8 @@ router.get('/:shortUrl', async (req, res, next) => {
   }
 
   urlCollection.updateOne({ shortUrl: req.shortenedUrl.shortUrl }, update);
+  
+  res.redirect(req.shortenedUrl.destination);
 });
 
 router.get('/:shortUrl/info', async (req, res, next) => {
