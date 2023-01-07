@@ -1,6 +1,6 @@
-if (process.env["DEV"]) {
-  require("dotenv").config();
-}
+// if (process.env["DEV"]) {
+require("dotenv").config();
+// }
 
 const express = require("express");
 const { MongoClient } = require("mongodb");

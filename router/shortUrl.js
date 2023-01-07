@@ -26,13 +26,11 @@ router.get("/:shortUrl", async (req, res, next) => {
     let ipAddress = req.header("x-forwarded-for");
     let location, coordinates, response;
 
-    try {
-      const ipData = await axios.get("https://ipinfo.io/json");
-      ipAddress = ipData.ip;
-      response = await axios.get(`https://ipapi.co/${ipAddress}/json`);
-      location = `${response.data.city}, ${response.data.region}, ${response.data.country_name}`;
-      coordinates = [response.data.longitude, response.data.latitude];
-    } catch {}
+    const ipData = await axios.get("https://ipinfo.io/json");
+    ipAddress = ipData.data.ip;
+    response = await axios.get(`https://ipapi.co/${ipAddress}/json`);
+    location = `${response.data.city}, ${response.data.region}, ${response.data.country_name}`;
+    coordinates = [response.data.longitude, response.data.latitude];
 
     update["$push"] = {
       visitors: {

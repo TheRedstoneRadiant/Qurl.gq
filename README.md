@@ -9,11 +9,15 @@
 # Screenshots
 
 <a href="https://qurl.gq">
-  <img height="400" alt="Homepage" src="https://user-images.githubusercontent.com/97064249/211168549-c31de702-6ef4-4d9d-9814-540e2d89454c.png">
+  <img height="400" alt="Homepage" src="https://user-images.githubusercontent.com/97064249/195446316-9442778e-7aa5-4c96-b051-202a58442881.png">
 </a>
 
 <a href="https://qurl.gq/glnh4/info">
-  <img height="400" alt="Info Page" src="https://user-images.githubusercontent.com/97064249/211168566-1b963631-12ff-4806-9417-64c4ed3aff5b.png">
+  <img height="400" alt="Info Page" src="https://user-images.githubusercontent.com/97064249/195446416-aec6fdbb-4cb9-4500-babb-771c3818181d.png">
+</a>
+
+<a href="https://qurl.gq/glnh4/info">
+  <img height="400" alt="Map" src="https://user-images.githubusercontent.com/97064249/195446479-f638ece3-b796-4c29-9d8a-320ad369fc33.png">
 </a>
 
 # Development
